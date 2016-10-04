@@ -84,11 +84,10 @@
 <div id='projets'>
     {% for projet in projets %}
         <div class='projet {{ projet.1 }}' style='background-color:{{ projet.0.color }}; {% if forloop.counter == 2 or forloop.counter == 5 or forloop.counter == 8 %}left:50%;{% endif %}' rel='{{ projet.2 }}'>
-
-        {% if projet.illustration_banner != "" %}
-            BANNER {{ projet.0.pk }} {{ projet.0.title }}
+        {% if projet.0.illustration_banner != "" %}
+            <img src='{{ MEDIA_URL }}{% thumbnail projet.0.illustration_banner 0 400 %}' alt='illustration' />
         {% else %}
-            SQUARE {{ projet.0.pk }} {{ projet.0.title }}
+            <img src='{{ MEDIA_URL }}{% thumbnail projet.0.illustration_square 0 400 %}' alt='illustration' />
         {% endif %}
         </div>
     {% endfor %}

@@ -2,7 +2,9 @@
 body{
     padding: 20px;
     color: rgb(7,36,251);
-    /*overflow: hidden;*/
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 1px;
+    font-weight: lighter;
 }
 a, a:hover, a:visited, a:focus{
     text-decoration: none;
@@ -83,8 +85,9 @@ nav{
 
 
 #presentation{
-    margin-top: 50px;
-    margin-bottom: 50px
+    margin-top: 125px;
+    margin-bottom: 125px;
+    font-size: 18px;
 }
 
 #projets{
@@ -98,11 +101,21 @@ nav{
 }
 .projet.banner{
     width: 100%;
+    text-align: center;
+}
+.projet.square img{
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+.projet.banner img{
+    height: 100%;
 }
 
 
 footer{
     background-color: white;
+    font-weight: normal;
 }
 footer h4{
     font-weight: bold;

@@ -29,3 +29,11 @@ $(window).load(function(){
 
     $('#projets').height((Math.ceil($('.projet.square').length/2)+$('.projet.banner').length) * $('.projet.square').width());
 });
+
+
+
+function centerProjects(){
+    $('.projet').each(function(){
+        $('this').css('top',$(this).height() - $(this).children('img').height()).css('left',$(this).width() - $(this).children('img').width());
+    });
+}
