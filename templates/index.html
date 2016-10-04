@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+{% endblock %}
+{% block extra_js %}
+    <script src="{% static "js/main.js" %}"></script>
+{% endblock %}
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block breadcrumb_menu %}
+<li class="active">{% trans "Home" %}</li>
+{% endblock %}
+
+{% block main %}
+<div id='curtain'>
+    <div id='title'>
+        <div class='left'>CLO</div>
+        <div class='right'>TILDE</div>
+    </div>
+    <a href='javascript:void(0)'>
+    <div id='toggle'>
+        <i class='fa fa-angle-down'></i>
+    </div>
+    </a>
+</div>
+<nav>
+    <div id='brand'>
+        <div class='left'>CLOT</div>
+        <div class='right'>ILDE</div>
+    </div>
+    <div id='menu'><i class='fa fa-bars fa-lg'></i></div>
+</nav>
+
+
+
+
+<div id="carousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+    {% for k in highlights %}
+        <div class="item {% if forloop.counter0 == 0 %} active {% endif %}">
+            <img src="{{ MEDIA_URL}}{% thumbnail k.illustration_banner 1000 400 center %}" alt="illustration {{ k.title }}">
+        </div>
+    {% endfor %}
+    </div>
+    <!-- Controls -->
+    {# <a class="left carousel-control" href="#carousel" role="button" data-slide="prev"> #}
+        {# <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> #}
+        {# <span class="sr-only">Previous</span> #}
+    {# </a> #}
+    {# <a class="right carousel-control" href="#carousel" role="button" data-slide="next"> #}
+        {# <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> #}
+        {# <span class="sr-only">Next</span> #}
+    {# </a> #}
+</div>
+
+<div id='presentation' class='container'>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2'>
+            <p>
+                Hello, I’m Clotilde Jacqmin, a freelance multidisciplinary <br />
+                designer & art director. My specialities are branding and print.
+            </p>
+            <p>
+                <a href='mailto:clotildejaja@gmail.com'>Contact me</a> if you need help on your next project.<br />
+                You can also read more about me.
+            </p>
+            <p>
+                Here’s a selection of my work.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id='projets'>
+    {% for projet in projets %}
+        <div class='projet {{ projet.1 }}' style='background-color:{{ projet.0.color }}; {% if forloop.counter == 2 or forloop.counter == 5 or forloop.counter == 8 %}left:50%;{% endif %}' rel='{{ projet.2 }}'>
+
+        {% if projet.illustration_banner != "" %}
+            BANNER {{ projet.0.pk }} {{ projet.0.title }}
+        {% else %}
+            SQUARE {{ projet.0.pk }} {{ projet.0.title }}
+        {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+
+<script type="text/javascript">
+    $('.carousel').carousel();
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

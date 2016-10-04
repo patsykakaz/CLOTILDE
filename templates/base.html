@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+<meta name="description" content="{% block meta_description %}{% endblock %}">
+<title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}</title>
+<link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+
+{% ifinstalled mezzanine.blog %}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+<link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+{% endifinstalled %}
+
+{% compress css %}
+<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+{# <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}"> #}
+{% block extra_css %}{% endblock %}
+{% endcompress %}
+
+{% compress js %}
+<script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+<script src="{% static "js/bootstrap.js" %}"></script>
+<script src="{% static "js/bootstrap-extras.js" %}"></script>
+{% block extra_js %}{% endblock %}
+{% endcompress %}
+
+<!--[if lt IE 9]>
+<script src="{% static "js/html5shiv.js" %}"></script>
+<script src="{% static "js/respond.min.js" %}"></script>
+<![endif]-->
+
+{% block extra_head %}{% endblock %}
+</head>
+
+<body id="{% block body_id %}body{% endblock %}">
+
+{% block main %}{% endblock %}
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class='col-md-4'>
+                <h4>Clotilde Jacqmin</h4>
+                <h4>Design / Art direction</h4>
+            </div>
+            <div class='col-md-4'>
+                <h4>
+                    E <span style='font-weight:normal'>— clotildejaja@gmail.com</span>
+                </h4>
+                <h4>
+                    T <span style='font-weight:normal'>— +33 626 350 075</span>
+                </h4>
+            </div>
+            <div class='col-md-4'>
+                <h4>All rights reserved.</h4>
+                <h4>
+                    <i class='fa fa-facebook'></i>
+                    <i class='fa fa-google-plus'></i>
+                    <i class='fa fa-twitter'></i>
+                </h4>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% block footer_js %}
+{% include "includes/footer_scripts.html" %}
+{% endblock %}
+
+</body>
+</html>
