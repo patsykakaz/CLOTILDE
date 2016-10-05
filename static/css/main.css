@@ -5,6 +5,7 @@ body{
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 1px;
     font-weight: lighter;
+    overflow: hidden;
 }
 a, a:hover, a:visited, a:focus{
     text-decoration: none;
@@ -64,7 +65,10 @@ nav{
     top: 0;
     left: 0;
     padding: 10px;
-}#brand .right{
+}#brand .left, #brand .right{
+    font-weight: bold;
+}
+#brand .right{
     margin-left: 15px;
 }
 #menu{

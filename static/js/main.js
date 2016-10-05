@@ -8,6 +8,9 @@ $(document).ready(function(){
     $('#title').css('top',($('#curtain').height()-$('#title').height())/2).css('left', ($('#curtain').width()-$('#title').width())/2);
 
     $('#menu .fa').css('margin-top',($('nav').height()-$('#menu').outerHeight())/2);
+    setTimeout(function(){
+        $(window).scrollTop(0);
+    },50);
 });
 
 $(window).load(function(){
@@ -20,20 +23,23 @@ $(window).load(function(){
         $('body').css('overflow','auto');
     });
 
+
+    Projects();
+});
+$(window).resize(function(){
+    Projects();
+});
+
+
+function Projects(){
     $('.projet').height($('.projet.square').width());
 
     $('.projet').each(function(){
-        console.log($(this).attr('rel'));
         $(this).css('top',$(this).attr('rel')*$('.projet.square').outerHeight());
     });
 
     $('#projets').height((Math.ceil($('.projet.square').length/2)+$('.projet.banner').length) * $('.projet.square').width());
-});
-
-
-
-function centerProjects(){
-    $('.projet').each(function(){
-        $('this').css('top',$(this).height() - $(this).children('img').height()).css('left',$(this).width() - $(this).children('img').width());
-    });
+    // $('.projet').each(function(){
+        // $('this').css('top',$(this).height() - $(this).children('img').height()).css('left',$(this).width() - $(this).children('img').width());
+    // });
 }
