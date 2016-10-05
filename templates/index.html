@@ -3,9 +3,11 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" href="{% static "css/icon.css" %}">
 {% endblock %}
 {% block extra_js %}
     <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/icon.js" %}"></script>
 {% endblock %}
 {% block meta_title %}{% trans "Home" %}{% endblock %}
 {% block title %}{% trans "Home" %}{% endblock %}
@@ -34,12 +36,9 @@
     <div id='menu'>
         {# <i class='fa fa-bars fa-lg'></i> #}
         <button type="button" class="tcon tcon-menu--xcross" aria-label="toggle menu">
-        <span class="tcon-menu__lines" aria-hidden="true"></span>
-        <span class="tcon-visuallyhidden">toggle menu</span>
+            <span class="tcon-menu__lines" aria-hidden="true"></span>
+            <span class="tcon-visuallyhidden">toggle menu</span>
         </button>
-        <span class="tcon-loader--spinner360" aria-label="loading">
-        <span class="tcon-visuallyhidden">loading</span>
-        </span>
     </div>
 </nav>
 
@@ -57,7 +56,7 @@
     <div class="carousel-inner" role="listbox">
     {% for k in highlights %}
         <div class="item {% if forloop.counter0 == 0 %} active {% endif %}">
-            <img src="{{ MEDIA_URL}}{% thumbnail k.illustration_banner 1000 400 center %}" alt="illustration {{ k.title }}">
+            <img src="{{ MEDIA_URL}}{% thumbnail k.illustration_banner 0 800 center %}" alt="illustration {{ k.title }}">
         </div>
     {% endfor %}
     </div>

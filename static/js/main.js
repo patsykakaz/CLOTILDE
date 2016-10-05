@@ -18,7 +18,7 @@ $(window).load(function(){
         .css('top',$('#curtain').outerHeight()*0.75)
         .css('left',($('#curtain').width()-$('#toggle').width())/2);
 
-    $('#toggle').click(function(){
+    $('#curtain').click(function(){
         $('#curtain').height(0);
         $('body').css('overflow','auto');
     });
@@ -39,7 +39,4 @@ function Projects(){
     });
 
     $('#projets').height((Math.ceil($('.projet.square').length/2)+$('.projet.banner').length) * $('.projet.square').width());
-    // $('.projet').each(function(){
-        // $('this').css('top',$(this).height() - $(this).children('img').height()).css('left',$(this).width() - $(this).children('img').width());
-    // });
 }
