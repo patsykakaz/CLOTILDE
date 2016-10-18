@@ -8,6 +8,10 @@
         body.block{
             overflow: hidden;
         }
+        #projet_presentation{
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
     </style>
 {% endblock %}
 {% block extra_js %}
@@ -22,27 +26,6 @@
 {% endblock %}
 
 {% block main %}
-{% if request.get_full_path == "/" %}
-<a href='javascript:void(0)'>
-    <div id='curtain'>
-        <div id='title'>
-            <div class='left'>CLO</div>
-            <div class='right'>TILDE</div>
-        </div>
-        <div id='toggle'>
-            <i class='fa fa-angle-down'></i>
-        </div>
-    </div>
-</a>
-{% else %}
-<script>
-    $(window).load(function(){
-        $('html, body').animate({
-            scrollTop: $("#projets").offset().top - 20
-        }, 0);
-    });
-</script>
-{% endif %}
 <div id='menu'>
     <div class='container'>
         <div class='item'><a href='/projets'>WORK</a></div>
@@ -96,22 +79,16 @@
 
 <div id='presentation' class='container'>
     <div class='row'>
-        <div class='col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12'>
-            <p>
-                Hello, I’m Clotilde Jacqmin, a freelance multidisciplinary <br />
-                designer & art director. My specialities are branding and print.
-            </p>
-            <p>
-                <a href='mailto:clotildejaja@gmail.com'>Contact me</a> if you need help on your next project.<br />
-                You can also read more about me.
-            </p>
-            <p>
-                Here’s a selection of my work.
-            </p>
+        <div class='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12'>
+            <div id='projet_presentation' class='row'>
+                <div class='col-lg-3 col-md-3 col-sm-2' style='border-top:1px solid rgb(7,36,251);'>
+                    <div style='margin:14px 0 16px 0;'><b>{{ projet.title|title }}</b></div>
+                    Graphic designer <br /> {{ projet.designer }}</div>
+                <div class='col-lg-9 col-md-9 col-sm-10'>{{ projet.content|safe }}</div>
+            </div>
         </div>
     </div>
 </div>
-
 <div id='projets'>
     {% for projet in projets %}
         <div class='projet {{ projet.1 }}' style='background-color:{{ projet.0.color }}; {% if forloop.counter == 2 or forloop.counter == 5 or forloop.counter == 8 %}left:50%;{% endif %}' rel='{{ projet.2 }}'>

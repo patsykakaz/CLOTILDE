@@ -16,9 +16,10 @@
 {% endifinstalled %}
 
 {% compress css %}
-<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
-{# <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}"> #}
+<link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+<link rel="stylesheet" href="{% static "css/bootstrap.override.css" %}">
+<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet">
 {% block extra_css %}{% endblock %}
 {% endcompress %}
@@ -42,14 +43,14 @@
 
 {% block main %}{% endblock %}
 
-<footer>
+<footer id='footer'>
     <div class="container">
         <div class="row">
-            <div class='col-md-4'>
+            <div class='col-md-4 col-sm-4 col-xs-12'>
                 <h4>Clotilde Jacqmin</h4>
                 <h4>Design / Art direction</h4>
             </div>
-            <div class='col-md-4'>
+            <div class='col-md-4 col-sm-4 col-xs-12'>
                 <h4>
                     E <span style='font-weight:lighter;'>— clotildejaja@gmail.com</span>
                 </h4>
@@ -57,7 +58,7 @@
                     T <span style='font-weight:lighter;'>— +33 626 350 075</span>
                 </h4>
             </div>
-            <div class='col-md-4'>
+            <div class='col-md-4 col-sm-4 col-xs-12'>
                 <h4>All rights reserved.</h4>
                 <h4>
                     <i class='fa fa-facebook'></i>

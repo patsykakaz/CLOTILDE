@@ -18,7 +18,9 @@ projet_fieldsets[0][1]["fields"].insert(-1, "color")
 projet_fieldsets[0][1]["fields"].insert(-1, "illustration_square")
 projet_fieldsets[0][1]["fields"].insert(-1, "illustration_banner")
 projet_fieldsets[0][1]["fields"].insert(-1, "baseline")
+projet_fieldsets[0][1]["fields"].insert(-1, "content")
 projet_fieldsets[0][1]["fields"].insert(-1, "highlight")
+projet_fieldsets[0][1]["fields"].insert(-1, "designer")
 class ProjetAdmin(PageAdmin):
     fieldsets = projet_fieldsets
     inlines = (ProjetCaptionInline,)

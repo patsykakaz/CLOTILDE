@@ -31,7 +31,6 @@ class IndexMiddleware(object):
                 except:
                     break
             i +=1
-        print projets
         response.context_data['highlights'] = highlights
         response.context_data['projets'] = projets
         return response

@@ -25,6 +25,7 @@ class Projet(Page,RichText):
         format="Image", max_length=255, null=False, blank=True)
     baseline = models.CharField(max_length=255,null=True, blank=True)
     highlight = models.BooleanField(default=False)
+    designer = models.CharField(max_length=255,default=False,null=True, blank=True)
 
     def save(self, *args, **kwargs):
         # in_menus empty pour exclure les archives des content_tree
@@ -38,11 +39,17 @@ class Projet(Page,RichText):
         super(Projet, self).save(*args, **kwargs)
 
 class ProjetCaption(models.Model):
-    Projet = models.ForeignKey("Projet")
+    projet = models.ForeignKey("Projet")
     image = FileField(verbose_name=_("Image"),
         upload_to=upload_to("MAIN.Projet", "Projet"),
         format="Image", max_length=255)
-    description = models.TextField(null=True, blank=True)
+    format_choices = (
+        ('square', 'square'),
+        ('banner', 'banner'),
+    )
+    image_format = models.CharField(max_length=50, 
+                    choices=format_choices, null=False, blank=False)
+    # description = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'Captions'

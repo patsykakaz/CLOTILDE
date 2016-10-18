@@ -1,7 +1,46 @@
+
+
+#carousel{
+}
 .carousel-inner .item{
     max-height: 500px;
 }
-.carousel-inner .item img{
-    height: 100%;
+.carousel-inner .item a img{
+    height: 500px;
+    max-height: 100%;
     width: auto;
+    margin: auto;
 }
+
+
+
+
+
+
+
+@media screen and (max-width: 768px){
+    .carousel-inner .item{
+        max-height: 200px;
+    }
+    .carousel-inner .item a img{
+        height: 200px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 970px){
+    .carousel-inner .item{
+        max-height: 300px;
+    }
+    .carousel-inner .item a img{
+        height: 300px;
+    }
+}
+
+/*@media screen and (min-width: 1200px){
+    .carousel-inner .item{
+        max-height: 600px;
+    }
+    .carousel-inner .item img{
+        height: 600px;
+    }
+}*/
