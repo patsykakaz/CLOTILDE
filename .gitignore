@@ -2,6 +2,7 @@
 *.pyo
 .DS_Store
 .coverage
+*.db
 local_settings.py
 seetings.py
 /static/*
@@ -9,4 +10,3 @@ seetings.py
 !/static/js
 !/static/img
 !/static/fonts
-!/static/media

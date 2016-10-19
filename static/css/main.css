@@ -3,7 +3,6 @@ body{
     padding: 20px;
     color: rgb(7,36,251);
     font-family: 'Open Sans', sans-serif;
-    letter-spacing: 1px;
     font-weight: lighter;
 }
 a, a:hover, a:visited, a:focus{
@@ -24,7 +23,8 @@ a, a:hover, a:visited, a:focus{
 #title{
     position: absolute;
     color: white;
-    font-size: 22px;
+    font-size: 19px;
+    line-height: 22px;
     letter-spacing: 7px;
 }
 #curtain .left{
@@ -39,7 +39,7 @@ a, a:hover, a:visited, a:focus{
 #curtain .right{
     position: relative;
     left: 250px;
-    margin-left: 20px;
+    margin-left: 26px;
     opacity: 0;
     -moz-transition: all 0.9s ease-in-out;
     -webkit-transition: all 0.9s ease-in-out;
@@ -51,8 +51,8 @@ a, a:hover, a:visited, a:focus{
     left: 0;
 }
 #toggle .fa{
-    padding: 4px 10px;
-    font-size: 30px;
+    padding: 2px 5px 2px 6px;
+    font-size: 17px;
     border: 1px solid #FFFFFF;
     color: white;
 }
@@ -74,7 +74,7 @@ a, a:hover, a:visited, a:focus{
 #menu .item{
     margin-bottom: 20px;
     text-align: center;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 600;
 }#menu .item a{
     color: white;
@@ -91,13 +91,16 @@ nav{
     top: 0;
     left: 0;
     padding: 10px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    line-height: 16px;
     -moz-transition: all 0.45s ease-in-out;
     -webkit-transition: all 0.45s ease-in-out;
     -o-transition: all 0.45s ease-in-out;
     transition: all 0.45s ease-in-out;
     -webkit-transition-delay: .5s; 
 }#brand .left, #brand .right{
-    font-weight: bold;
+    font-weight: lighter;
 }#brand.on{
     color: #FFFFFF;
     -webkit-transition-delay: 0s; 
@@ -156,6 +159,7 @@ footer{
 }
 footer h4{
     font-weight: bold;
+    font-size: 16px;
 }
 
 
@@ -163,10 +167,10 @@ footer h4{
 
 @media screen and (max-width: 768px){
     #presentation{
-        margin-top: 25px;
-        margin-bottom: 25px;
-        font-size: 15px;
-        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        font-size: 16px;
+        /*text-align: center;*/
     }
     footer h4{
         font-size: 13px;
@@ -175,8 +179,8 @@ footer h4{
 
 @media screen and (min-width: 768px) and (max-width: 970px){
     #presentation{
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 70px;
+        margin-bottom: 70px;
         font-size: 16px;
     }
     footer h4{
@@ -184,8 +188,10 @@ footer h4{
     }
 }
 
-@media screen and (min-widthz: 970px) and (max-width: 1200px){
-
+@media screen and (min-width: 1400px){
+    #presentation{
+        font-size: 20px;
+    }  
 }
 
 

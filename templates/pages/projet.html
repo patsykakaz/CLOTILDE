@@ -9,8 +9,11 @@
             overflow: hidden;
         }
         #projet_presentation{
-            font-size: 13px;
-            letter-spacing: 1px;
+            font-size: 14px;
+            /*letter-spacing: -1px;*/
+        }
+        #for{
+            font-size: 12px;
         }
     </style>
 {% endblock %}
@@ -61,7 +64,7 @@
     {% for k in highlights %}
         <div class="item {% if forloop.counter0 == 0 %} active {% endif %}" style='background-color:{{ k.color }};'>
             <a href='{{ k.get_absolute_url }}'>
-                <img src="{{ MEDIA_URL}}{% thumbnail k.illustration_banner 0 800 center %}" alt="illustration {{ k.title }}">
+                <img src="{{ MEDIA_URL}}{% thumbnail k.illustration_banner 0 1200 center %}" alt="illustration {{ k.title }}">
             </a>
         </div>
     {% endfor %}
@@ -82,8 +85,10 @@
         <div class='col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12'>
             <div id='projet_presentation' class='row'>
                 <div class='col-lg-3 col-md-3 col-sm-2' style='border-top:1px solid rgb(7,36,251);'>
-                    <div style='margin:14px 0 16px 0;'><b>{{ projet.title|title }}</b></div>
-                    Graphic designer <br /> {{ projet.designer }}</div>
+                    <div style='margin:14px 0 16px 0;'>
+                        <b>{{ projet.title|title }}</b></div>
+                        <div id='for'>{{ projet.designer }}</div>
+                    </div>
                 <div class='col-lg-9 col-md-9 col-sm-10'>{{ projet.content|safe }}</div>
             </div>
         </div>
