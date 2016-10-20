@@ -32,6 +32,8 @@ class Projet(Page,RichText):
 
     def save(self, *args, **kwargs):
         # in_menus empty pour exclure les archives des content_tree
+        if self.illustration_square != "":
+            self.illustration_banner = ""
         try: 
             parent = Page.objects.get(title='PROJETS')
             self.parent = parent
@@ -40,6 +42,9 @@ class Projet(Page,RichText):
         if self.highlight and not self.illustration_banner:
             self.highlight = False
         super(Projet, self).save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = 'PROJET'
 
 class ProjetCaption(models.Model):
     projet = models.ForeignKey("Projet")
@@ -55,6 +60,6 @@ class ProjetCaption(models.Model):
     # description = models.TextField(null=True, blank=True)
 
     class Meta:
-        verbose_name = 'Captions'
+        verbose_name = 'CAPTION'
 
 
