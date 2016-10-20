@@ -5,6 +5,7 @@
 *.db
 local_settings.py
 seetings.py
+**/migrations
 /static/*
 !/static/css
 !/static/js
