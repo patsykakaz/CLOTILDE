@@ -12,8 +12,8 @@ from models import *
 class IndexMiddleware(object):
     def process_template_response(self, request, response):
         highlights = Projet.objects.filter(highlight=True)
-        squares = Projet.objects.filter(illustration_banner="").order_by('created')
-        banners = Projet.objects.exclude(illustration_banner="").order_by('created')
+        squares = Projet.objects.filter(illustration_banner="").order_by('-created')
+        banners = Projet.objects.exclude(illustration_banner="").order_by('-created')
         projets = []
         i = 1
         t = 0

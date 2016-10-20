@@ -23,6 +23,9 @@ class Projet(Page,RichText):
     illustration_banner = FileField(verbose_name=_("Banner"),
         upload_to=upload_to("MAIN.Banner", "Banner"),
         format="Image", max_length=255, null=False, blank=True)
+    illustration_alternative = FileField(verbose_name=_("Illustration alternative"),
+        upload_to=upload_to("MAIN.Alternative", "Alternative"),
+        format="Image", max_length=255, null=False, blank=True)
     baseline = models.CharField(max_length=255,null=True, blank=True)
     highlight = models.BooleanField(default=False)
     designer = models.CharField(max_length=255,default=False,null=True, blank=True)
