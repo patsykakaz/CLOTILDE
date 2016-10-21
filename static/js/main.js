@@ -35,9 +35,11 @@ $(window).load(function(){
         $('body').removeClass('block');
     });
     Projects();
+    $('.carousel .item').height($(window)width()/2);
 });
 $(window).resize(function(){
     Projects();
+    $('.carousel .item').height($(window)width()/2);
 });
 
 
