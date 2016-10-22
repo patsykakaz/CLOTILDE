@@ -133,6 +133,7 @@ nav{
 }
 .projet{
     position: absolute;
+    overflow: hidden;
 }
 .projet.square{
     width: 50%;
@@ -148,6 +149,22 @@ nav{
 }
 .projet.banner img{
     height: 100%;
+}
+.projet .more{
+    position: relative;
+    z-index: 3;
+    top: -103%;
+    left: -1%;
+    width: 102%;
+    height: 102%;
+    background-color: rgba(11,36,251,.75);
+    border: none;
+    -moz-transition: all 0.45s ease-in-out;
+    -webkit-transition: all 0.45s ease-in-out;
+    -o-transition: all 0.45s ease-in-out;
+    transition: all 0.45s ease-in-out;
+}.projet:hover .more{
+    top: -1%;
 }
 
 

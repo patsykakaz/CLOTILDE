@@ -3,7 +3,7 @@
 #carousel{
 }
 .carousel-inner .item{
-    max-height: 500px;
+    /*max-height: 500px;*/
 }
 .carousel-inner .item a img{
     /*height: 500px;*/
