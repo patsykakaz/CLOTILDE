@@ -21,11 +21,17 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
+    if($(window).scrollTop() == 0 & $('#curtain').length){
+        $("body").addClass('block');
+        $('#curtain').height($(window).height()-2*padding);
+    }else{
+        $('#curtain').height(0);
+    }
     setTimeout(function(){
         if($(window).scrollTop() > 0 || !$('#curtain').length){
             $("body").removeClass('block');
         }
-    },50);
+    },25);
     $('#toggle')
         .css('top',$('#curtain').outerHeight()*0.85)
         .css('left',($('#curtain').width()-$('#toggle').width())/2);
