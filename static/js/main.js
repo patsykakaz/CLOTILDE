@@ -12,7 +12,7 @@ $(document).ready(function(){
         if($(window).scrollTop() > 0 || !$('#curtain').length){
             $("body").removeClass('block');
         }
-    },10);
+    },50);
     $('#menu').height($(window).height()).width($(window).width());
     $('#menu .container').css('margin-top',($(window).height()-$('#menu .container').height())/2);
     $('#title').css('top',($('#curtain').height()-$('#title').height())/2).css('left', ($('#curtain').width()-$('#title').width())/2);
@@ -48,6 +48,9 @@ function Projects(){
 
     $('.projet').each(function(){
         $(this).css('top',$(this).attr('rel')*$('.projet.square').outerHeight());
+        more = $(this).children('.more');
+        cross = more.children('img');
+        cross.css('top', (more.height()-cross.height())/2);
     });
 
     $('#projets').height((Math.ceil($('.projet.square').length/2)+$('.projet.banner').length) * $('.projet.square').width());

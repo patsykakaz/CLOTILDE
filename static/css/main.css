@@ -134,37 +134,45 @@ nav{
 .projet{
     position: absolute;
     overflow: hidden;
+    text-align: center;
 }
 .projet.square{
     width: 50%;
 }
 .projet.banner{
     width: 100%;
-    text-align: center;
 }
-.projet.square img{
+.projet.square img.illustration_projet{
     margin: auto;
     height: 100%;
     width: 100%;
 }
-.projet.banner img{
+.projet.banner img.illustration_projet{
     height: 100%;
 }
 .projet .more{
     position: relative;
     z-index: 3;
-    top: -103%;
     left: -1%;
+    bottom: 101%;
     width: 102%;
     height: 102%;
-    background-color: rgba(11,36,251,.75);
+    opacity: 0;
+    background-color: rgb(11,36,251);
     border: none;
-    -moz-transition: all 0.45s ease-in-out;
-    -webkit-transition: all 0.45s ease-in-out;
-    -o-transition: all 0.45s ease-in-out;
-    transition: all 0.45s ease-in-out;
-}.projet:hover .more{
-    top: -1%;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}.projet .more img{
+    position: relative;
+    height: 10%;
+    max-height: 40px;
+    width: auto;
+    max-width: 40px;
+}
+.projet:hover .more{
+    opacity: 1;
 }
 
 
