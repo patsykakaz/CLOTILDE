@@ -4,7 +4,7 @@
 .coverage
 *.db
 local_settings.py
-seetings.py
+settings.py
 **/migrations
 /static/*
 !/static/css

@@ -87,9 +87,9 @@ nav{
 }
 #brand{
     position: absolute;
-    width: 50%;   
+    width: 47%;   
     top: 0;
-    left: 0;
+    left: 3%;
     padding: 10px;
     font-size: 15px;
     letter-spacing: 2px;
@@ -111,8 +111,8 @@ nav{
 #cta_menu{
     position: absolute;
     top: 0;
-    left: 50%;
-    width: 50%;
+    right: 3%;
+    width: 47%;
     padding: 10px;
     text-align: right;
 }#cta_menu .tcon.tcon-menu--xcross{

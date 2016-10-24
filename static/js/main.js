@@ -8,11 +8,6 @@ $(document).ready(function(){
         $("body").addClass('block');
         $('#curtain').height($(window).height()-2*padding);
     }
-    setTimeout(function(){
-        if($(window).scrollTop() > 0 || !$('#curtain').length){
-            $("body").removeClass('block');
-        }
-    },50);
     $('#menu').height($(window).height()).width($(window).width());
     $('#menu .container').css('margin-top',($(window).height()-$('#menu .container').height())/2);
     $('#title').css('top',($('#curtain').height()-$('#title').height())/2).css('left', ($('#curtain').width()-$('#title').width())/2);
@@ -26,6 +21,11 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
+    setTimeout(function(){
+        if($(window).scrollTop() > 0 || !$('#curtain').length){
+            $("body").removeClass('block');
+        }
+    },50);
     $('#toggle')
         .css('top',$('#curtain').outerHeight()*0.85)
         .css('left',($('#curtain').width()-$('#toggle').width())/2);
