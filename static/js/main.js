@@ -1,12 +1,13 @@
 
 $(document).ready(function(){
-    $('#curtain .left').css('right', 0).css('opacity',1);
-    $('#curtain .right').css('left',0).css('opacity',1);
-
     padding = 20;
     if($(window).scrollTop() == 0 & $('#curtain').length){
         $("body").addClass('block');
         $('#curtain').height($(window).height()-2*padding);
+        $('#toggle')
+            .css('top',$('#curtain').outerHeight()*0.85)
+            .css('left',($('#curtain').width()
+                        -$('#toggle').width())/2);
     }
     $('#menu').height($(window).height()).width($(window).width());
     $('#menu .container').css('margin-top',($(window).height()-$('#menu .container').height())/2);
@@ -21,6 +22,9 @@ $(document).ready(function(){
 });
 
 $(window).load(function(){
+    $('#toggle').css('opacity',1);
+    $('#curtain .left').css('right', 0).css('opacity',1);
+    $('#curtain .right').css('left',0).css('opacity',1);
     if($(window).scrollTop() == 0 & $('#curtain').length){
         $("body").addClass('block');
         $('#curtain').height($(window).height()-2*padding);
@@ -32,9 +36,6 @@ $(window).load(function(){
             $("body").removeClass('block');
         }
     },25);
-    $('#toggle')
-        .css('top',$('#curtain').outerHeight()*0.85)
-        .css('left',($('#curtain').width()-$('#toggle').width())/2);
 
     $('#curtain').click(function(){
         $('#curtain').height(0);
@@ -55,7 +56,7 @@ function Projects(){
     $('.projet').each(function(){
         $(this).css('top',$(this).attr('rel')*$('.projet.square').outerHeight());
         more = $(this).children('.more');
-        cross = more.children('img');
+        cross = more.children('a').children('img');
         cross.css('top', (more.height()-cross.height())/2);
     });
 

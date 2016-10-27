@@ -8,6 +8,9 @@
         body.block{
             overflow: hidden;
         }
+        #main_illustration{
+            
+        }
         #projet_presentation{
             font-size: 14px;
             /*letter-spacing: -1px;*/
@@ -50,34 +53,14 @@
 </nav>
 
 
-
-
-<div id="carousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    {# <ol class="carousel-indicators"> #}
-        {# <li data-target="#carousel" data-slide-to="0" class="active"></li> #}
-        {# <li data-target="#carousel" data-slide-to="1"></li> #}
-        {# <li data-target="#carousel" data-slide-to="2"></li> #}
-    {# </ol> #}
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-    {% for k in highlights %}
-        <div class="item {% if forloop.counter0 == 0 %} active {% endif %}" style='background-color:{{ k.color }};'>
-            <a href='{{ k.get_absolute_url }}'>
-                <img src="{{ MEDIA_URL}}{% thumbnail k.illustration_banner 0 1200 center %}" alt="illustration {{ k.title }}">
-            </a>
-        </div>
-    {% endfor %}
-    </div>
-    <!-- Controls -->
-    {# <a class="left carousel-control" href="#carousel" role="button" data-slide="prev"> #}
-        {# <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> #}
-        {# <span class="sr-only">Previous</span> #}
-    {# </a> #}
-    {# <a class="right carousel-control" href="#carousel" role="button" data-slide="next"> #}
-        {# <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> #}
-        {# <span class="sr-only">Next</span> #}
-    {# </a> #}
+<div id='main_illustration'>
+    {% if projet.illustration_alternative %}
+        <img src='{% static "projet.illustration_alternative" %}' alt='illustration principale projet' />
+    {% elif projet.illustration_banner %}
+        <img src='{% static "projet.illustration_banner" %}' alt='illustration principale projet' />
+    {% else %}
+        <img src='{% static "projet.illustration_square" %}' alt='illustration principale projet' />
+    {% endif %}
 </div>
 
 <div id='presentation' class='container'>
@@ -107,12 +90,6 @@
         </div>
     {% endfor %}
 </div>
-
-
-<script type="text/javascript">
-    $('.carousel').carousel();
-    transformicons.add('.tcon')
-</script>
 
 {% endblock %}
 
