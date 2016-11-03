@@ -8,8 +8,8 @@
         body.block{
             overflow: hidden;
         }
-        #main_illustration{
-            
+        #main_illustration img{
+            height: 100%;
         }
         #projet_presentation{
             font-size: 14px;
@@ -23,6 +23,39 @@
 {% block extra_js %}
     <script src="{% static "js/main.js" %}"></script>
     <script src="{% static "js/icon.js" %}"></script>
+    <script type="text/javascript">
+        i = 0;
+        t = 0;
+        $(document).ready(function(){
+            $('footer').addClass('hide');
+            $('.projet').each(function(){
+                $(this).attr('rel',Math.floor(i));
+                if($(this).hasClass('square')){
+                    console.log('square');
+                    i += 0.5;
+                }else if($(this).hasClass('banner')){
+                    console.log('banner');
+                    i += 1;
+                }
+            });
+
+        $(function() {
+          $('#top').click(function() {
+            $('html, body').animate({
+                    scrollTop: 0
+                }, 1000);
+                return false;
+            });
+        });
+
+        });
+        $(window).load(function(){
+            $('#main_illustration').height($(window).width()/2 -40);
+        });
+        $(window).resize(function(){
+            $('#main_illustration').height($(window).width()/2 -40);
+        });
+    </script>
 {% endblock %}
 {% block meta_title %}{% trans "Home" %}{% endblock %}
 {% block title %}{% trans "Home" %}{% endblock %}
@@ -53,13 +86,13 @@
 </nav>
 
 
-<div id='main_illustration'>
+<div id='main_illustration' class='text-center'>
     {% if projet.illustration_alternative %}
-        <img src='{% static "projet.illustration_alternative" %}' alt='illustration principale projet' />
+        <img src='{{ MEDIA_URL }}{{ projet.illustration_alternative }}' alt='illustration principale projet' />
     {% elif projet.illustration_banner %}
-        <img src='{% static "projet.illustration_banner" %}' alt='illustration principale projet' />
+        <img src='{{ MEDIA_URL }}{{ projet.illustration_banner }}' alt='illustration principale projet' />
     {% else %}
-        <img src='{% static "projet.illustration_square" %}' alt='illustration principale projet' />
+        <img src='{{ MEDIA_URL }}{{ projet.illustration_square }}' alt='illustration principale projet' />
     {% endif %}
 </div>
 
@@ -78,19 +111,31 @@
     </div>
 </div>
 <div id='projets'>
-    {% for projet in projets %}
-        <div class='projet {{ projet.1 }}' style='background-color:{{ projet.0.color }}; {% if forloop.counter == 2 or forloop.counter == 5 or forloop.counter == 8 %}left:50%;{% endif %}' rel='{{ projet.2 }}'>
-            <a href='{{ projet.0.get_absolute_url }}'>
-            {% if projet.0.illustration_banner != "" %}
-                <img src='{{ MEDIA_URL }}{% thumbnail projet.0.illustration_banner 0 800 %}' alt='illustration' />
+    {% for caption in projet.captions %}
+        <div class='projet {{ caption.image_format }}' style='background-color:{{ caption.color }}; {% if forloop.counter == 2 or forloop.counter == 5 or forloop.counter == 8 %}left:50%;{% endif %}'>
+            {% if caption.image_format == "banner" %}
+                <img class='illustration_projet' src='{{ MEDIA_URL }}{% thumbnail caption.image 0 800 %}' alt='illustration' />
             {% else %}
-                <img src='{{ MEDIA_URL }}{% thumbnail projet.0.illustration_square 0 800 %}' alt='illustration' />
+                <img class='illustration_projet' src='{{ MEDIA_URL }}{% thumbnail caption.image 0 800 %}' alt='illustration' />
             {% endif %}
-            </a>
         </div>
     {% endfor %}
 </div>
 
+<div id='next' class='text-center'>
+    {% if next_projet %}
+        <a href='{{ next_projet.get_absolute_url }}'>Next</a>
+    {% elif previous_projet %}
+        <a href='{{ previous_projet.get_absolute_url }}'>Next</a>
+    {% else %}
+        ERROR
+    {% endif %}
+    <a id='top' href='javascript=void(0)'>
+        <div id='cta_next'>
+            <i class='fa fa-angle-up'></i>
+        </div>
+    </a>
+</div>
 {% endblock %}
 
 

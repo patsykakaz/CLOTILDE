@@ -10,6 +10,12 @@ from .models import *
 def processor_projet(request, page):
     projet = Projet.objects.get(pk=page.pk)
     projet.captions = ProjetCaption.objects.filter(projet=projet)
+    try: 
+        next_projet = Projet.objects.filter(pk__gt=(projet.pk+1))
+        next_projet = next_projet[0]
+    except:
+        previous_projet = Projet.objects.order_by('-pk')
+        previous_projet = previous_projet[0]
     return locals()
 
 

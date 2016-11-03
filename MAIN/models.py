@@ -58,6 +58,7 @@ class ProjetCaption(models.Model):
     image_format = models.CharField(max_length=50, 
                     choices=format_choices, null=False, blank=False)
     # description = models.TextField(null=True, blank=True)
+    color = ColorField(default='#FFFFFF')
 
     class Meta:
         verbose_name = 'CAPTION'
