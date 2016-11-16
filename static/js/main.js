@@ -45,6 +45,14 @@ $(window).load(function(){
     $('.carousel .item').height($('.projet.square').width());
 });
 $(window).resize(function(){
+    if($(window).scrollTop() == 0 & $('#curtain').length & $('#curtain').height() > 0){
+        $('#curtain').height($(window).height()-2*padding);
+        $('#toggle')
+            .css('top',$('#curtain').outerHeight()*0.85)
+            .css('left',($('#curtain').width()
+                        -$('#toggle').width())/2);
+        $('#title').css('top',($('#curtain').height()-$('#title').height())/2).css('left', ($('#curtain').width()-$('#title').width())/2);
+    }
     Projects();
     $('.carousel .item').height($('.projet.square').width());
 });

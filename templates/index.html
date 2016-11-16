@@ -4,6 +4,7 @@
 {% block extra_css %}
     <link rel="stylesheet" href="{% static "css/main.css" %}">
     <link rel="stylesheet" href="{% static "css/icon.css" %}">
+    <link rel="stylesheet" href="{% static "css/bounce.css" %}">
     <style type="text/css">
         body.block{
             overflow: hidden;
@@ -114,11 +115,11 @@
 
 <div id='projets'>
     {% for projet in projets %}
-        <div class='projet {{ projet.1 }}' style='background-color:{{ projet.0.color }}; {% if forloop.counter == 2 or forloop.counter == 5 or forloop.counter == 8 %}left:50%;{% endif %}' rel='{{ projet.2 }}'>
+        <div class='projet {{ projet.1 }}' style='background-color:{{ projet.0.color }}; {% if projet.3 %}left:50%;{% endif %}' rel='{{ projet.2 }}'>
             {% if projet.0.illustration_banner != "" %}
-                <img class='illustration_projet' src='{{ MEDIA_URL }}{% thumbnail projet.0.illustration_banner 0 0 %}' alt='illustration' />
+                <img class='illustration_projet' src='{{ MEDIA_URL }}{% thumbnail projet.0.illustration_banner 0 0 %}' alt='illustration {{ projet.0.title }}' />
             {% else %}
-                <img class='illustration_projet' src='{{ MEDIA_URL }}{% thumbnail projet.0.illustration_square 0 0 %}' alt='illustration' />
+                <img class='illustration_projet' src='{{ MEDIA_URL }}{% thumbnail projet.0.illustration_square 0 0 %}' alt='illustration {{ projet.0.title }}' />
             {% endif %}
             <div class='more'>
                 <a href='{{ projet.0.get_absolute_url }}'>
