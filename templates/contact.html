@@ -44,6 +44,29 @@
 {% block title %}{% trans "Home" %}{% endblock %}
 
 {% block main %}
+
+<div id='menu'>
+    <div class='container'>
+        <div class='item'><a href='/projets'>work</a></div>
+        <div class='item'><a href='/contact'>contact</a></div>
+    </div>
+</div>
+<nav>
+    <div id='brand'>
+        <a href='/'>
+            <div class='left' style='font-weight:lighter;'>CLOT</div>
+            <div class='right' style='font-weight:lighter;'>ILDE</div>
+        </a>
+    </div>
+    <div id='cta_menu'>
+        {# <i class='fa fa-bars fa-lg'></i> #}
+        <button type="button" class="tcon tcon-menu--xcross" aria-label="toggle menu">
+            <span class="tcon-menu__lines" aria-hidden="true"></span>
+            <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
+    </div>
+</nav>
+
     <div class='section'>
         <h2>bonjour</h2>
         <h2>hello</h2>
