@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load pages_tags mezzanine_tags i18n staticfiles %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" href="{% static "css/icon.css" %}">
+    <link rel="stylesheet" href="{% static "css/bounce.css" %}">
+    <style type="text/css">
+        .section{
+            display: inline-block;
+            width: calc(50% - 5px);
+        }
+        .section h2{
+            font-size: 30px;
+            color: rgb(11,36,251);
+        }
+    </style>
+{% endblock %}
+{% block extra_js %}
+    <script src="{% static "js/main.js" %}"></script>
+    <script src="{% static "js/icon.js" %}"></script>
+{% endblock %}
+{% block meta_title %}{% trans "Home" %}{% endblock %}
+{% block title %}{% trans "Home" %}{% endblock %}
+
+{% block main %}
+    <div class='section'>
+        <h2>bonjour</h2>
+        <h2>hello</h2>
+        <h2>hola</h2>
+        <h2>ciao</h2>
+        <h2>bom dia</h2>
+        <h2>halló</h2>
+        <h2>konnichi wa</h2>
+    </div>
+    <div class='section'>
+        <h4>
+            E <span style='font-weight:lighter;'>— <a href='mailto:clotildejaja@gmail.com'>clotildejaja@gmail.com</a></span>
+        </h4>
+        <h4>
+            T <span style='font-weight:lighter;'>— +33 626 350 075</span>
+        </h4>
+    </div>
+{% endblock %}
