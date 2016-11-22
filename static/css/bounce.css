@@ -20,7 +20,7 @@
     -moz-border-radius:50%;
     -ms-border-radius:50%;
     border-radius:50%;*/
-}.bounce:hover{
+}.bounce:active{
      animation: bounce .7s;
      -webkit-animation: bounce .7s;
      -moz-animation: bounce .7s;

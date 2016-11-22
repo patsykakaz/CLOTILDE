@@ -39,6 +39,9 @@ $(window).load(function(){
         $('#curtain').height($(window).height()-2*padding);
     }else{
         $('#curtain').height(0);
+        setTimeout(function(){
+            $('#toggle').addClass('hide');
+        },1000);
     }
     setTimeout(function(){
         if($(window).scrollTop() > 0 || !$('#curtain').length){
@@ -49,6 +52,7 @@ $(window).load(function(){
     $('#curtain').click(function(){
         $('#curtain').height(0);
         $('body').removeClass('block');
+        $('#toggle').addClass('hide');
     });
     Projects();
     $('.carousel .item').height($('.projet.square').width());

@@ -39,6 +39,33 @@
 {% block extra_js %}
     <script src="{% static "js/main.js" %}"></script>
     <script src="{% static "js/icon.js" %}"></script>
+    <script type="text/javascript">
+    $(window).load(function(){
+        if($(window).width()>991){
+            navCat();
+        }
+    });
+    $(window).resize(function(){
+        if($(window).width()>991){
+            $('.navCat').css('font-size',65);
+            navCat();
+        }
+    });
+
+    function navCat(){
+        if($('#main').outerHeight() < ($(window).outerHeight() -$('nav').outerHeight() -$('false_footer').outerHeight()) ){
+            Fsize = parseFloat($('#main h2').css('font-size'))+0.05;
+            // console.log(Fsize);
+            $('#main h2').css('font-size',Fsize);
+            $('#main h2').attr('rel',Fsize);
+            if(Fsize<100){
+                setTimeout(navCat(),10);
+            }
+        }
+    }
+    </script>
+
+
 {% endblock %}
 {% block meta_title %}{% trans "Home" %}{% endblock %}
 {% block title %}{% trans "Home" %}{% endblock %}
@@ -67,7 +94,7 @@
     </div>
 </nav>
 
-    <div class='section'>
+    <div id='main' class='section'>
         <h2>bonjour</h2>
         <h2>hello</h2>
         <h2>hola</h2>
@@ -76,7 +103,7 @@
         <h2>halló</h2>
         <h2>konnichi wa</h2>
     </div>
-    <div class='section last'>
+    <div id='false_footer' class='section last'>
         <h4 style='margin-top:20px;'>
             E <span style='font-weight:lighter;'>— <a href='mailto:clotildejaja@gmail.com'>clotildejaja@gmail.com</a></span>
         </h4>
